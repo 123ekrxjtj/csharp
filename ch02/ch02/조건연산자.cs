@@ -17,6 +17,25 @@ namespace ch02
 
             int max, min;
 
+            if(a > b)
+            {
+                if (a > c) max = a;
+                else max = c;
+
+                if(b > c) min = c;
+                else min = b;
+            }
+            else
+            {
+                if (b > c) max = b;
+                else max = c;
+
+                if(a>c) min = c;
+                else min = a;
+            }
+
+            Console.WriteLine("The max : {0}, The min : {1}", max, min);
+
             max = a > b ? (a > c ? a : c) : (b > c ? b : c);
             min = a < b ? (a < c ? a : c) : (b < c ? b : c);
 
