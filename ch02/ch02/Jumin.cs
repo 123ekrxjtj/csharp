@@ -30,11 +30,21 @@ namespace ch02
 
         static int Calc_Age(string curDate, string jumin,int this_year)
         {
+            int curYear = Convert.ToInt32(curDate.Substring(0, 4));
             int curMonth = Convert.ToInt32(curDate.Substring(5, 2));
             int curDays = Convert.ToInt32(curDate.Substring(8, 2));
             int month = Convert.ToInt32(jumin.Substring(2, 2));
             int days = Convert.ToInt32(jumin.Substring(4, 2));
 
+            int retAge = curYear - this_year;
+            if(curMonth < month)
+            {
+                retAge -= 1;
+            }else if(curMonth == month || curDays < days)
+            {
+                retAge -= 1;
+            }
+            return retAge;
 
         }
 
@@ -45,16 +55,16 @@ namespace ch02
             string jumin = Console.ReadLine();
 
             string curDate = Convert.ToString(DateTime.Now);
-            Console.WriteLine(curDate);
+            
             int curYear = DateTime.Now.Year;
-            int this_year = Convert.ToInt32(jumin.Substring(2, 2));
+            int this_year = Convert.ToInt32(jumin.Substring(0, 2));
             int month = Convert.ToInt32(jumin.Substring(2, 2));
             int days = Convert.ToInt32(jumin.Substring(4, 2));
             int jencode = Convert.ToInt32(jumin.Substring(6, 1));
 
             string jender=Calc_gubun(jencode);
             int year = Calc_Year(this_year,jencode);
-            int age = Calc_Age(curDate, jumin,this_year);
+            int age = Calc_Age(curDate, jumin,year);
 
 
             Console.WriteLine("년도 >> {0}",year);
