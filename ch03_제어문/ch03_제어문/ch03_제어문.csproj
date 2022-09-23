@@ -5,7 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>ch03_제어문.switch_hakjum</StartupObject>
+    <StartupObject>TotalDoWhile</StartupObject>
   </PropertyGroup>
 
 </Project>
