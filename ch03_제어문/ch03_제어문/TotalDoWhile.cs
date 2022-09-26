@@ -21,6 +21,9 @@ public class TotalDoWhile
                 holSum += num;
             }
 
+            Console.Write("하나의 정수 입력 ( -1 ~ 10 사이 ) : ");
+            num = Convert.ToInt32(Console.ReadLine());
+
             while (num > 10 || num < -1)
             {
                 Console.Write("하나의 정수 입력 ( -1 ~ 10 사이 ) : ");
