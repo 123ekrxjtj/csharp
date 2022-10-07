@@ -5,7 +5,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>ch05.ch5_2_Method</StartupObject>
+    <StartupObject>생성자</StartupObject>
   </PropertyGroup>
 
 </Project>
