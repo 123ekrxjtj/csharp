@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ch10
+namespace 사칙연산
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace ch10
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new 로그인창());
+            Application.Run(new Form1());
         }
     }
 }

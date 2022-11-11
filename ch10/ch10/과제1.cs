@@ -22,5 +22,10 @@ namespace ch10
             txInputName.Text = txName.Text;
             txInputAge.Text = txAge.Text;
         }
+
+        private void 과제1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

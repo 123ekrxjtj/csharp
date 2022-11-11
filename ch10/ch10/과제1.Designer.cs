@@ -150,6 +150,7 @@
             this.Controls.Add(this.btnOutput);
             this.Name = "과제1";
             this.Text = "과제1";
+            this.Load += new System.EventHandler(this.과제1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
