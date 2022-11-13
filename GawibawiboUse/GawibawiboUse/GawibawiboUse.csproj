@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="가위바위보">
+      <HintPath>..\..\가위바위보6\가위바위보6\bin\Debug\net6.0-windows\가위바위보.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
