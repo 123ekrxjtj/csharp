@@ -64,9 +64,9 @@
             this.lbCom.AutoSize = true;
             this.lbCom.Location = new System.Drawing.Point(12, 81);
             this.lbCom.Name = "lbCom";
-            this.lbCom.Size = new System.Drawing.Size(19, 15);
+            this.lbCom.Size = new System.Drawing.Size(43, 15);
             this.lbCom.TabIndex = 0;
-            this.lbCom.Text = "컴";
+            this.lbCom.Text = "컴퓨터";
             // 
             // lbMe
             // 
@@ -100,9 +100,9 @@
             this.lbResult.AutoSize = true;
             this.lbResult.Location = new System.Drawing.Point(293, 216);
             this.lbResult.Name = "lbResult";
-            this.lbResult.Size = new System.Drawing.Size(39, 15);
+            this.lbResult.Size = new System.Drawing.Size(31, 15);
             this.lbResult.TabIndex = 4;
-            this.lbResult.Text = "label3";
+            this.lbResult.Text = "결과";
             // 
             // btnGawei
             // 
@@ -152,10 +152,10 @@
             // 
             // btn_View_Result
             // 
-            this.btn_View_Result.Location = new System.Drawing.Point(279, 254);
+            this.btn_View_Result.Location = new System.Drawing.Point(259, 254);
             this.btn_View_Result.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_View_Result.Name = "btn_View_Result";
-            this.btn_View_Result.Size = new System.Drawing.Size(75, 29);
+            this.btn_View_Result.Size = new System.Drawing.Size(95, 29);
             this.btn_View_Result.TabIndex = 8;
             this.btn_View_Result.Text = "결과보기";
             this.btn_View_Result.UseVisualStyleBackColor = true;
@@ -190,27 +190,27 @@
             this.lb_Com_P.AutoSize = true;
             this.lb_Com_P.Location = new System.Drawing.Point(124, 359);
             this.lb_Com_P.Name = "lb_Com_P";
-            this.lb_Com_P.Size = new System.Drawing.Size(35, 15);
+            this.lb_Com_P.Size = new System.Drawing.Size(77, 15);
             this.lb_Com_P.TabIndex = 12;
-            this.lb_Com_P.Text = "보 수";
+            this.lb_Com_P.Text = "보 횟수 : 0번";
             // 
             // lb_Com_R
             // 
             this.lb_Com_R.AutoSize = true;
             this.lb_Com_R.Location = new System.Drawing.Point(124, 328);
             this.lb_Com_R.Name = "lb_Com_R";
-            this.lb_Com_R.Size = new System.Drawing.Size(47, 15);
+            this.lb_Com_R.Size = new System.Drawing.Size(89, 15);
             this.lb_Com_R.TabIndex = 11;
-            this.lb_Com_R.Text = "바위 수";
+            this.lb_Com_R.Text = "바위 횟수 : 0번";
             // 
             // lb_Com_S
             // 
             this.lb_Com_S.AutoSize = true;
             this.lb_Com_S.Location = new System.Drawing.Point(124, 292);
             this.lb_Com_S.Name = "lb_Com_S";
-            this.lb_Com_S.Size = new System.Drawing.Size(47, 15);
+            this.lb_Com_S.Size = new System.Drawing.Size(89, 15);
             this.lb_Com_S.TabIndex = 10;
-            this.lb_Com_S.Text = "가위 수";
+            this.lb_Com_S.Text = "가위 횟수 : 0번";
             // 
             // lb_Com
             // 
@@ -226,27 +226,27 @@
             this.lb_Me_P.AutoSize = true;
             this.lb_Me_P.Location = new System.Drawing.Point(20, 359);
             this.lb_Me_P.Name = "lb_Me_P";
-            this.lb_Me_P.Size = new System.Drawing.Size(19, 15);
+            this.lb_Me_P.Size = new System.Drawing.Size(77, 15);
             this.lb_Me_P.TabIndex = 8;
-            this.lb_Me_P.Text = "보";
+            this.lb_Me_P.Text = "보 횟수 : 0번";
             // 
             // lb_Me_R
             // 
             this.lb_Me_R.AutoSize = true;
             this.lb_Me_R.Location = new System.Drawing.Point(20, 328);
             this.lb_Me_R.Name = "lb_Me_R";
-            this.lb_Me_R.Size = new System.Drawing.Size(47, 15);
+            this.lb_Me_R.Size = new System.Drawing.Size(89, 15);
             this.lb_Me_R.TabIndex = 7;
-            this.lb_Me_R.Text = "바위 수";
+            this.lb_Me_R.Text = "바위 횟수 : 0번";
             // 
             // lb_Me_S
             // 
             this.lb_Me_S.AutoSize = true;
             this.lb_Me_S.Location = new System.Drawing.Point(20, 292);
             this.lb_Me_S.Name = "lb_Me_S";
-            this.lb_Me_S.Size = new System.Drawing.Size(47, 15);
+            this.lb_Me_S.Size = new System.Drawing.Size(89, 15);
             this.lb_Me_S.TabIndex = 6;
-            this.lb_Me_S.Text = "가위 수";
+            this.lb_Me_S.Text = "가위 횟수 : 0번";
             // 
             // lb_Me
             // 
@@ -271,42 +271,42 @@
             this.lb_Total_Count.AutoSize = true;
             this.lb_Total_Count.Location = new System.Drawing.Point(20, 176);
             this.lb_Total_Count.Name = "lb_Total_Count";
-            this.lb_Total_Count.Size = new System.Drawing.Size(75, 15);
+            this.lb_Total_Count.Size = new System.Drawing.Size(105, 15);
             this.lb_Total_Count.TabIndex = 3;
-            this.lb_Total_Count.Text = "총 게임 횟수";
+            this.lb_Total_Count.Text = "총 게임 횟수 : 0번";
             // 
             // lb_Draw_Score
             // 
             this.lb_Draw_Score.AutoSize = true;
             this.lb_Draw_Score.Location = new System.Drawing.Point(20, 145);
             this.lb_Draw_Score.Name = "lb_Draw_Score";
-            this.lb_Draw_Score.Size = new System.Drawing.Size(59, 15);
+            this.lb_Draw_Score.Size = new System.Drawing.Size(89, 15);
             this.lb_Draw_Score.TabIndex = 2;
-            this.lb_Draw_Score.Text = "비긴 횟수";
+            this.lb_Draw_Score.Text = "비긴 횟수 : 0번";
             // 
             // lb_Com_Score
             // 
             this.lb_Com_Score.AutoSize = true;
             this.lb_Com_Score.Location = new System.Drawing.Point(20, 110);
             this.lb_Com_Score.Name = "lb_Com_Score";
-            this.lb_Com_Score.Size = new System.Drawing.Size(87, 15);
+            this.lb_Com_Score.Size = new System.Drawing.Size(117, 15);
             this.lb_Com_Score.TabIndex = 1;
-            this.lb_Com_Score.Text = "컴이 이긴 횟수";
+            this.lb_Com_Score.Text = "컴이 이긴 횟수 : 0번";
             // 
             // lb_Me_Score
             // 
             this.lb_Me_Score.AutoSize = true;
             this.lb_Me_Score.Location = new System.Drawing.Point(20, 72);
             this.lb_Me_Score.Name = "lb_Me_Score";
-            this.lb_Me_Score.Size = new System.Drawing.Size(87, 15);
+            this.lb_Me_Score.Size = new System.Drawing.Size(117, 15);
             this.lb_Me_Score.TabIndex = 0;
-            this.lb_Me_Score.Text = "내가 이긴 횟수";
+            this.lb_Me_Score.Text = "내가 이긴 횟수 : 0번";
             // 
             // 서준혁_가위바위보
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 451);
+            this.ClientSize = new System.Drawing.Size(384, 451);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_View_Result);
             this.Controls.Add(this.btnBo);

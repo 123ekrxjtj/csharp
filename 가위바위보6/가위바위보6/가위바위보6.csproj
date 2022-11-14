@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <Reference Include="가위바위보">
-      <HintPath>..\..\ch10_2_가위바위보\ch10_2_가위바위보\bin\Debug\가위바위보.dll</HintPath>
+      <HintPath>bin\Debug\net6.0-windows\가위바위보.dll</HintPath>
     </Reference>
   </ItemGroup>
 
