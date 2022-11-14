@@ -88,6 +88,8 @@
             // 
             // pbMe
             // 
+            this.pbMe.ErrorImage = null;
+            this.pbMe.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbMe.InitialImage")));
             this.pbMe.Location = new System.Drawing.Point(87, 169);
             this.pbMe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pbMe.Name = "pbMe";
