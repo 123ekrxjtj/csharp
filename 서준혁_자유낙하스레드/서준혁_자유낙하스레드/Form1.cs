@@ -87,7 +87,7 @@ namespace 서준혁_자유낙하스레드
         {
             while (score < 5)
             {
-                Red.Y += 20;
+                Red.Y += ran.Next(1, 15);
                 //  충돌했으면 X, Y좌표 초기화 후 점수 상승
                 if (isCollision(Red))
                 {
@@ -129,7 +129,7 @@ namespace 서준혁_자유낙하스레드
         {
             while (score < 5)
             {
-                Yellow.Y += 20;
+                Yellow.Y += ran.Next(1, 15);
                 //  충돌했으면 X, Y좌표 초기화 후 점수 상승
                 if (isCollision(Yellow))
                 {
@@ -154,7 +154,7 @@ namespace 서준혁_자유낙하스레드
         {
             while (score < 5)
             {
-                Blue.Y += 20;
+                Blue.Y += ran.Next(1, 15);
                 //  충돌했으면 X, Y좌표 초기화 후 점수 상승
                 if (isCollision(Blue))
                 {
