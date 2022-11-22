@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FC1244D9-01C0-40F2-862F-226A60CC6228}</ProjectGuid>
+    <ProjectGuid>{66CEBB48-EA88-46CD-9EB7-EEEDBB19D187}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>서준혁_자유낙하스레드</RootNamespace>
-    <AssemblyName>서준혁_자유낙하스레드</AssemblyName>
+    <RootNamespace>랜덤시험문제</RootNamespace>
+    <AssemblyName>랜덤시험문제</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,17 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="서준혁_자유낙하.cs">
+    <Compile Include="응용컨트롤.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="서준혁_자유낙하.Designer.cs">
-      <DependentUpon>서준혁_자유낙하.cs</DependentUpon>
+    <Compile Include="응용컨트롤.Designer.cs">
+      <DependentUpon>응용컨트롤.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="서준혁_자유낙하.resx">
-      <DependentUpon>서준혁_자유낙하.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -66,6 +63,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="응용컨트롤.resx">
+      <DependentUpon>응용컨트롤.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

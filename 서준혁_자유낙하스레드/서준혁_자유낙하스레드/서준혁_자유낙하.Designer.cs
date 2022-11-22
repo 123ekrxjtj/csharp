@@ -1,6 +1,6 @@
 ﻿namespace 서준혁_자유낙하스레드
 {
-    partial class Form1
+    partial class 서준혁_자유낙하
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.

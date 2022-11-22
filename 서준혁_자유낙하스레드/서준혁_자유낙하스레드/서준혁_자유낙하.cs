@@ -11,37 +11,44 @@ using System.Threading;
 
 namespace 서준혁_자유낙하스레드
 {
-    public partial class Form1 : Form
+    public partial class 서준혁_자유낙하 : Form
     {
         private Point p, Red, Yellow, Blue;    //  포인터 객체
         private int score = 0;  //  점수
 
-                private Random ran = new Random();  //  랜덤 클래스 ran
+        private Random ran = new Random();  //  랜덤 클래스 ran
         static bool gameOver = false;   // 기본값 false 로 지정
 
-        public Form1()
+        public 서준혁_자유낙하()
         {
             InitializeComponent();
             p.X = 15; p.Y = 400; //  플레이어 초기 좌표 할당
 
+            //  공들 초기 좌표 할당
             Red.X = ran.Next(0,260); Red.Y = 0;
             Yellow.X = ran.Next(0, 260); Yellow.Y = 0;
             Blue.X = ran.Next(0, 260); Blue.Y = 0;
 
+            //  스레드 3개 시작
             Run();
         }
 
+        //  키 눌리면 호출하는 함수
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
+                //  왼쪽키면
                 case Keys.Left:
                     p.X -= 20;
+                    //  x 좌표가 0 미만이면 300으로 초기화
                     if (p.X < 0) p.X = 300;
                     //  Invalidate();
                     break;
+                //  오른쪽키면
                 case Keys.Right:
                     p.X += 20;
+                    //  x 좌표가 300 초과이면 0으로 초기화
                     if (p.X > 300) p.X = 0;
                     //  Invalidate();
                     break;
@@ -50,6 +57,7 @@ namespace 서준혁_자유낙하스레드
             }
         }
 
+        //  공들 그리는 함수
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.FillEllipse(Brushes.Black, p.X, p.Y, 40, 40);
@@ -58,6 +66,7 @@ namespace 서준혁_자유낙하스레드
             e.Graphics.FillEllipse(Brushes.Blue, Blue.X, Blue.Y, 40, 40);
         }
 
+        //  스레드 시작하는 함수
         public void Run()
         {
             new Thread(SafeCalcRed).Start();          //총 3개의 스레드가 생성됨.  Red색 공을 움직이기위한 Thread 생성 
@@ -83,10 +92,13 @@ namespace 서준혁_자유낙하스레드
             return boolCollision;
         }
 
+        //  빨간 공 스레드 함수
         private void SafeCalcRed()
         {
+            //  점수 5 아래일 때
             while (score < 5)
             {
+                //  무작위 속도로 내려옴
                 Red.Y += ran.Next(1, 15);
                 //  충돌했으면 X, Y좌표 초기화 후 점수 상승
                 if (isCollision(Red))
@@ -96,13 +108,14 @@ namespace 서준혁_자유낙하스레드
                     score++;    //  점수 증가
                     lb_score.Text = Convert.ToString("점수 : " + score);
                 }
+                //  공이 화면 아래로 내려갔으면 좌표 초기화
                 if (Red.Y > 500)
                 {
                     Red.Y = 0;
                     Red.X = ran.Next(0, 260);
                 }
                 Invalidate();
-                Thread.Sleep(50);           //Thread가 일시적으로 중지되는 것인데, 이는 공의 속도와 관련되있어진다. 스레드 삭제시에도 필요함. Thread(밀리초) 
+                Thread.Sleep(50); 
             }
 
             GameOver();
@@ -124,11 +137,13 @@ namespace 서준혁_자유낙하스레드
         }
 
 
-
+        //  노란 공 스레드 함수
         private void SafeCalcYellow()
         {
+            //  점수 5 아래일 때
             while (score < 5)
             {
+                //  무작위 속도로 내려옴
                 Yellow.Y += ran.Next(1, 15);
                 //  충돌했으면 X, Y좌표 초기화 후 점수 상승
                 if (isCollision(Yellow))
@@ -138,22 +153,26 @@ namespace 서준혁_자유낙하스레드
                     score++;    //  점수 증가
                     lb_score.Text = Convert.ToString("점수 : " + score);
                 }
+                //  공이 화면 아래로 내려갔으면 좌표 초기화
                 if (Yellow.Y > 500)
                 {
                     Yellow.Y = 0;
                     Yellow.X = ran.Next(0, 260);
                 }
                     Invalidate();
-                Thread.Sleep(50);           //Thread가 일시적으로 중지되는 것인데, 이는 공의 속도와 관련되있어진다. 스레드 삭제시에도 필요함. Thread(밀리초) 
+                Thread.Sleep(50);          
             }
             GameOver();
 
         }
 
+        //  파란 공 스레드 함수
         private void SafeCalcBlue()
         {
+            //  점수 5 아래일 때
             while (score < 5)
             {
+                //  무작위 속도로 내려옴
                 Blue.Y += ran.Next(1, 15);
                 //  충돌했으면 X, Y좌표 초기화 후 점수 상승
                 if (isCollision(Blue))
@@ -163,13 +182,14 @@ namespace 서준혁_자유낙하스레드
                     score++;    //  점수 증가
                     lb_score.Text = Convert.ToString("점수 : " + score);
                 }
+                //  공이 화면 아래로 내려갔으면 좌표 초기화
                 if (Blue.Y > 500)
                 {
                     Blue.Y = 0;
                     Blue.X = ran.Next(0, 300);
                 }
                 Invalidate();
-                Thread.Sleep(50);           //Thread가 일시적으로 중지되는 것인데, 이는 공의 속도와 관련되있어진다. 스레드 삭제시에도 필요함. Thread(밀리초)
+                Thread.Sleep(50);          
             }
             GameOver();
 

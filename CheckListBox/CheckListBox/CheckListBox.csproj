@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FC1244D9-01C0-40F2-862F-226A60CC6228}</ProjectGuid>
+    <ProjectGuid>{8B1CA888-C286-4646-9244-A63C5F1E472C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>서준혁_자유낙하스레드</RootNamespace>
-    <AssemblyName>서준혁_자유낙하스레드</AssemblyName>
+    <RootNamespace>CheckListBox</RootNamespace>
+    <AssemblyName>CheckListBox</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,16 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="서준혁_자유낙하.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="서준혁_자유낙하.Designer.cs">
-      <DependentUpon>서준혁_자유낙하.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArrayRadio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArrayRadio.Designer.cs">
+      <DependentUpon>ArrayRadio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCombo.Designer.cs">
+      <DependentUpon>FrmCombo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="서준혁_자유낙하.resx">
-      <DependentUpon>서준혁_자유낙하.cs</DependentUpon>
+    <Compile Include="R_B_과제.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="R_B_과제.Designer.cs">
+      <DependentUpon>R_B_과제.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ArrayRadio.resx">
+      <DependentUpon>ArrayRadio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCombo.resx">
+      <DependentUpon>FrmCombo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +90,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="R_B_과제.resx">
+      <DependentUpon>R_B_과제.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +105,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\bawei.jpg" />
+    <Content Include="Image\gawei.jpg" />
+    <Content Include="Image\tree-736885__480.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

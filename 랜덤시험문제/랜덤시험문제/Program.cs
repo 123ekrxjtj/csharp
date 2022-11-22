@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace 서준혁_자유낙하스레드
+namespace 랜덤시험문제
 {
     internal static class Program
     {
@@ -16,7 +16,7 @@ namespace 서준혁_자유낙하스레드
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new 서준혁_자유낙하());
+            Application.Run(new 체크박스연습());
         }
     }
 }
