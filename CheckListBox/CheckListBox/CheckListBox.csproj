@@ -72,6 +72,18 @@
     <Compile Include="R_B_과제.Designer.cs">
       <DependentUpon>R_B_과제.cs</DependentUpon>
     </Compile>
+    <Compile Include="각체동적생성.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="각체동적생성.Designer.cs">
+      <DependentUpon>각체동적생성.cs</DependentUpon>
+    </Compile>
+    <Compile Include="랜덤시험문제.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="랜덤시험문제.Designer.cs">
+      <DependentUpon>랜덤시험문제.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ArrayRadio.resx">
       <DependentUpon>ArrayRadio.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +105,12 @@
     <EmbeddedResource Include="R_B_과제.resx">
       <DependentUpon>R_B_과제.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="각체동적생성.resx">
+      <DependentUpon>각체동적생성.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="랜덤시험문제.resx">
+      <DependentUpon>랜덤시험문제.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -107,6 +125,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\2.jpg" />
+    <Content Include="Images\3.jpg" />
+    <Content Include="Images\4.jpg" />
+    <Content Include="Images\a.jpg" />
+    <Content Include="Images\b.jpg" />
+    <Content Include="Images\c.jpg" />
+    <Content Include="Images\d.jpg" />
     <Content Include="Image\bawei.jpg" />
     <Content Include="Image\gawei.jpg" />
     <Content Include="Image\tree-736885__480.jpg" />

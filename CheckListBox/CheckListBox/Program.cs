@@ -16,7 +16,7 @@ namespace CheckListBox
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ArrayRadio());
+            Application.Run(new 랜덤시험문제());
         }
     }
 }
