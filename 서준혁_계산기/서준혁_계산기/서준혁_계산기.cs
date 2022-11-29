@@ -26,7 +26,7 @@ namespace 서준혁_계산기
         
         // 계산기에서 쓸 전역 변수
         string buff = "";         // 연산자나 = 누르기 전까지 입력된 숫자 저장할 변수
-        string output = "";      // 계산기에 출력되는 문자열 저장
+        string output = "";      // textbox에 출력되는 문자열 저장
 
         public 서준혁_계산기()
         {
@@ -91,10 +91,10 @@ namespace 서준혁_계산기
         private void Bt_num_Click(object sender, MouseEventArgs e)
         {
             Button btn = (Button)sender;
-            // 숫자 키 중 어느 것이 눌러졌는지를 저장
+
             buff += btn.Text;   //  버튼의 숫자를 buff에 추가
-            output += btn.Text; //  출력되는 문자열에 버튼 숫자 추가
-            tx_Result.Text = output;    //  textbox에 누른 결과 갱신
+            output += btn.Text; //  textbox에 출력할 변수에 버튼 숫자 추가
+            tx_Result.Text = output;    //  textbox에 누른 output 갱신
         }
         #endregion
 
@@ -146,8 +146,8 @@ namespace 서준혁_계산기
             }
 
             buff = "";  //  임시 숫자 초기화
-            output += btn.Text; //  출력할 결과에 연산자 문자 추가
-            tx_Result.Text = output;    //  결과물을 textbox에 갱신
+            output += btn.Text; //  textbox에 출력할 변수에 버튼 숫자 추가
+            tx_Result.Text = output;    //  textbox에 누른 output 갱신
         }
         #endregion
 
@@ -169,7 +169,7 @@ namespace 서준혁_계산기
                 buff_List.Add(popOper);
             }
 
-            //  후위식 리스트에 요소 개수만큼 루프
+            //  후위식 리스트의 요소 개수만큼 루프
             for (int i = 0; i < buff_List.Count; i++)
             {
                 //  가져온 요소의 연산자 우선순위
@@ -185,7 +185,7 @@ namespace 서준혁_계산기
                 //  가져온 요소가 연산자면
                 else
                 {
-                    //  숫자 스택에서 pop해서 저장
+                    //  숫자 스택에서 pop해서 임시 저장
                     double num2 = calc_Num_Stack.Pop();
                     
 
@@ -221,10 +221,10 @@ namespace 서준혁_계산기
                         double tmpNum;  //  임시 변수
                         switch (buff_List[i])
                         {
-                            case "*":   //  곱셈 후 숫자 스택에 푸시
+                            case "*":   //  곱셈
                                 tmpNum = num1 * num2;
                                 break;
-                            case "/":   //  나눈 후 숫자 스택에 푸시
+                            case "/":   //  나눗셈
                                 //  0 나눔 예외처리
                                 if (num2 == 0)
                                 {
@@ -233,22 +233,23 @@ namespace 서준혁_계산기
                                 }
                                 tmpNum = num1 / num2;
                                 break;
-                            case "%":   //  나머지 연산 후 숫자 스택에 푸시
+                            case "%":   //  나머지 연산
                                 tmpNum = num1 % num2;
                                 break;
-                            case "+":   //  더하기 후 숫자 스택에 푸시
+                            case "+":   //  더하기
                                 tmpNum = num1 + num2;
                                 break;
-                            default:   //  뺄셈 후 숫자 스택에 푸시
+                            default:   //  뺄셈 (default로 해둠)
                                 tmpNum = num1 - num2;
                                 break;
                         }
+                        //  연산 결과 숫자 스택에 push
                         calc_Num_Stack.Push(tmpNum);
                     }
                 }
             }
 
-            //  최종 값
+            //  숫자 스택에 마지막으로 남아 있는 것이 최종 결과값
             double res = calc_Num_Stack.Pop();
 
             output += "=" + res.ToString();   //  textbox에 쓸 output에 =와 결과값 추가
