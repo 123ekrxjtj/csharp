@@ -106,6 +106,7 @@
             this.button6.TabIndex = 10;
             this.button6.Text = "^";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Bt_oper_Click);
             // 
             // button7
             // 
@@ -195,6 +196,7 @@
             this.button16.TabIndex = 15;
             this.button16.Text = "!";
             this.button16.UseVisualStyleBackColor = true;
+            this.button16.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Bt_oper_Click);
             // 
             // button17
             // 
@@ -244,6 +246,7 @@
             this.button24.TabIndex = 25;
             this.button24.Text = "√\'";
             this.button24.UseVisualStyleBackColor = true;
+            this.button24.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Bt_oper_Click);
             // 
             // button5
             // 
@@ -259,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 233);
+            this.ClientSize = new System.Drawing.Size(292, 239);
             this.Controls.Add(this.button24);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button13);
@@ -283,7 +286,6 @@
             this.Controls.Add(this.tx_Result);
             this.Name = "서준혁_계산기";
             this.Text = "서준혁_계산기";
-            this.Load += new System.EventHandler(this.서준혁_계산기_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -14,39 +14,38 @@ namespace 서준혁_계산기
 {
     public partial class 서준혁_계산기 : Form
     {
-        //  계산기 연산 시 쓸 스택들
-        //  = 누를 때 까지 누른 숫자, 연산자 모두 저장할 리스트
-        //  2 + 3 = 누르면 buff_List에 ["2", "3", "+"] 중위식으로 저장되게 함
+        //  계산기 연산 시 쓸 스택과 리스트
+        //  buff_List는 = 누를 때 까지 누른 숫자, 연산자를 후위식으로 저장할 리스트
+        //  2 + 3 = 누르면 ["2", "3", "+"] 와 같이 후위식으로 저장되게 함
         List<String> buff_List;
 
-        Stack<double> calc_Num_Stack;   //  숫자 넣을 스택,후위식 계산시 사용함
-        Stack<String> calc_Oper_Stack;   //  연산자 넣을 스택, 중위식 -> 후위식 변환과 후위식 계산시 사용함
-        // 계산기에서 사용할  전역 변수 선언
-        double num1, num2; // 두 수 저장할 변수  
-        string buff = "";         // 임시 보관 할 변수
-        string output = "";      // 임시 출력 할 변수
-        char oper;               // 연산자 저장할 변수 + , - , * , /
-        double result;          // 결과 값 저장할 변수 
-        int checkNum = 0;   //  연속 계산 위한 체크 변수
-        int isDanhang = 0;  //  단항인지 이항 연산인지 체크 변수
+        //  숫자 넣을 스택,후위식 계산시 사용함
+        Stack<double> calc_Num_Stack;
+        //  연산자 넣을 스택, 중위식 -> 후위식 변환과 후위식 계산시 사용함
+        Stack<String> calc_Oper_Stack;   
+        
+        // 계산기에서 쓸 전역 변수
+        string buff = "";         // 연산자나 = 누르기 전까지 입력된 숫자 저장할 변수
+        string output = "";      // 계산기에 출력되는 문자열 저장
 
         public 서준혁_계산기()
         {
             InitializeComponent();
 
+            //  스택, 리스트 할당
             buff_List = new List<String>();
             calc_Num_Stack = new Stack<double>();
             calc_Oper_Stack = new Stack<String>();
         }
 
-        //  연산자를 인수로 받아 우선순위를 반환함
+        //  연산자나 숫자를 인수로 받아 우선순위를 반환함
         //  0   숫자를 입력한 경우
         //  1   + - 
         //  2   * / %
         //  3   ^
         //  4   √ ! ( 단항 연산자 )
         //  숫자가 높으면 우선순위 높음
-        private int pri_Oper(String oper)
+        private int check_Priority(String oper)
         {
             //  기본값 0, 0이면 숫자를 입력받은 것임
             int priority = 0;
@@ -68,7 +67,7 @@ namespace 서준혁_계산기
                     priority = 3;
                     break;
                 //  √ ! 우선순위 4
-                case "√":
+                case "√'":
                 case "!":
                     priority = 4;
                     break;
@@ -76,19 +75,16 @@ namespace 서준혁_계산기
             return priority;
         }
 
+        //  팩토리얼 계산 함수
         private int factorial(int n)
         {
+            //  n부터 1까지 곱해서 반환
             int fact = 1;
             for (int i = 2; i <= n; i++)
             {
-                fact*=i;
+                fact *= i;
             }
             return fact;
-        }
-
-        private void 서준혁_계산기_Load(object sender, EventArgs e)
-        {
-            tx_Result.Text = output;
         }
 
         #region : 숫자 버튼 클릭시 동작
@@ -96,30 +92,28 @@ namespace 서준혁_계산기
         {
             Button btn = (Button)sender;
             // 숫자 키 중 어느 것이 눌러졌는지를 저장
-            buff += btn.Text;           // 3    // 8
-            output += btn.Text;       // 3    // 3 + 8
-            tx_Result.Text = output;  // 3    // 3 + 8
-                                      //  buff=3, output=3, textbox1=3
-                                      //  뒤에서 buff=0, output=3+, textbox1=3+  로 되어 있는 상태에서 8 입력하면
-                                      //  buff=8, output=3+8, textbox1=3+8 이고 = 입력하면 [3] 으로 감
+            buff += btn.Text;   //  버튼의 숫자를 buff에 추가
+            output += btn.Text; //  출력되는 문자열에 버튼 숫자 추가
+            tx_Result.Text = output;    //  textbox에 누른 결과 갱신
         }
         #endregion
 
         #region : 클리어 클릭시 동작
         private void Bt_clear_Click(object sender, MouseEventArgs e)
         {
-            checkNum = 0;
-            tx_Result.Text = "";
-            num1 = 0;
-            num2 = 0;
+            //  textbox와 현재까지 입력된 숫자 모두 초기화
+            tx_Result.Text = "";    
             buff = "";
             output = "";
-            result = 0.0;
-            oper = ' ';
+
+            //  스택, 리스트 초기화
+            buff_List.Clear();
+            calc_Num_Stack.Clear();
+            calc_Oper_Stack.Clear();
         }
         #endregion
 
-        #region : + - * / % 클릭 시 동작
+        #region : 연산자 ( + - * / % 등 ) 클릭 시 동작
         private void Bt_oper_Click(object sender, MouseEventArgs e)
         {
             Button btn = (Button)sender;
@@ -129,41 +123,37 @@ namespace 서준혁_계산기
             //  연산자 누르기 전까지 입력한 숫자 후위식 리스트에 추가
             buff_List.Add(buff);
 
+            //  연산자 스택이 비어있으면 바로 클릭한 연산자 추가
             if (calc_Oper_Stack.Count == 0)
             {
                 calc_Oper_Stack.Push(btnOper);
             }
+            //  연산자 스택이 비어있지 않으면
             else
             {
-                int cur_pri = pri_Oper(btnOper);   //  클릭한 연산자의 우선순위
-                int stack_pri = pri_Oper(calc_Oper_Stack.Peek());   //  연산자 스택 Peek한 것의 우선순위
+                //  클릭한 연산자의 우선순위
+                int cur_pri = check_Priority(btnOper);
+                //  연산자 스택 Peek한 것의 우선순위
+                int stack_pri = check_Priority(calc_Oper_Stack.Peek());   
 
-                //  클릭한 연산자의 우선순위가 연산자 스택 Peek한 것의 우선순위보다 작거나 같으면
+                //  클릭한 연산자의 우선순위 <= 연산자 스택 Peek한 것의 우선순위일 때
                 if (cur_pri <= stack_pri)
                 {
-                    //  연산자 스택에서 Pop 한 것 후위식 리스트에 저장
+                    //  연산자 스택에서 Pop 한 연산자를 후위식 리스트에 추가
                     buff_List.Add(calc_Oper_Stack.Pop());
                 }
                 calc_Oper_Stack.Push(btnOper);  //  클릭한 연산자를 연산자 스택에 추가
             }
 
-            buff = "";                     // 0
-            output += btn.Text;            // 3 + 
-            tx_Result.Text = output;        // 3 + 
-            // buff=3, num1=3, buff=0, output=3+, textbox1=3+, oper = +
-            //다음에 8을 입력하면 다시[1] 앞 페이지 로 감
+            buff = "";  //  임시 숫자 초기화
+            output += btn.Text; //  출력할 결과에 연산자 문자 추가
+            tx_Result.Text = output;    //  결과물을 textbox에 갱신
         }
         #endregion
 
         #region : = 클릭 시 동작
         private void Bt_calc_Click(object sender, MouseEventArgs e)
         {
-            // num1=3, oper = +, buff=8,
-            // output += btn.Text;      // 3    // 3 + 8
-            // textBox1.Text = output;  // 3    // 3 + 8
-            // 인 상태에서 = 이 입렫되면 btn에는 = 가 저장됨
-            //  Button btn = (Button)sender;      // btn에는 = 가 저장됨
-
             //  buff에 숫자가 있다면
             if (buff!="")
             {
@@ -171,13 +161,21 @@ namespace 서준혁_계산기
                 buff_List.Add(buff);
             }
 
-            //  후위식에 있는 숫자, 연산자 요소 개수만큼 루프
+            //  연산자 스택에 아직 연산자가 남아있는 동안
+            //  팝해서 후위식 리스트에 추가
+            while (calc_Oper_Stack.Count > 0)
+            {
+                String popOper = calc_Oper_Stack.Pop();
+                buff_List.Add(popOper);
+            }
+
+            //  후위식 리스트에 요소 개수만큼 루프
             for (int i = 0; i < buff_List.Count; i++)
             {
                 //  가져온 요소의 연산자 우선순위
-                int tmpPriority = pri_Oper(buff_List[i]);
+                int tmpPriority = check_Priority(buff_List[i]);
 
-                //  가져온 요소가 숫자면 (우선순위 0이면)
+                //  가져온 요소가 숫자면
                 if (tmpPriority==0)
                 {
                     //  double 로 변환 후 숫자 스택에 push
@@ -187,30 +185,32 @@ namespace 서준혁_계산기
                 //  가져온 요소가 연산자면
                 else
                 {
-                    //  숫자 스택에서 pop한 것 저장
+                    //  숫자 스택에서 pop해서 저장
                     double num2 = calc_Num_Stack.Pop();
+                    
 
                     //  가져온 요소가 단항 연산자면
                     if (tmpPriority == 4)
                     {
                         switch (buff_List[i])
                         {
-                            case "√":   //  루트 후 숫자 스택에 푸시
+                            case "√'":   //  루트 후 숫자 스택에 푸시
                                 calc_Num_Stack.Push(Math.Sqrt(num2));
                                 break;
                             case "!":   //  팩토리얼 후 숫자 스택에 푸시
                                 calc_Num_Stack.Push(factorial(Convert.ToInt32(num2)));
                                 break;
                         }
-                        continue;
+                        continue;   //  아래 코드 건너뜀
                     }
-                    //  가져온 요소가 ^면
-                    else if (tmpPriority == 3)
-                    {
-                        //  이항 연산자이므로 숫자 하나 더 pop
-                        //  숫자 스택에서 pop한 것 저장
-                        double num1 = calc_Num_Stack.Pop();
 
+                    //  이 아래는 모두 이항 연산자이므로
+                    //  숫자 하나 더 pop해서 저장
+                    double num1 = calc_Num_Stack.Pop();
+
+                    //  가져온 요소가 ^ (제곱 연산)이면
+                    if (tmpPriority == 3)
+                    {
                         //  제곱 연산 후 숫자 스택에 push
                         double tmpNum = Math.Pow(num1, num2);
                         calc_Num_Stack.Push(tmpNum);
@@ -218,10 +218,6 @@ namespace 서준혁_계산기
                     //  가져온 요소가  * / % + - 면
                     else
                     {
-                        //  이항 연산자이므로 숫자 하나 더 pop
-                        //  숫자 스택에서 pop한 것 저장
-                        double num1 = calc_Num_Stack.Pop();
-
                         double tmpNum;  //  임시 변수
                         switch (buff_List[i])
                         {
@@ -229,6 +225,7 @@ namespace 서준혁_계산기
                                 tmpNum = num1 * num2;
                                 break;
                             case "/":   //  나눈 후 숫자 스택에 푸시
+                                //  0 나눔 예외처리
                                 if (num2 == 0)
                                 {
                                     tx_Result.Text = "0으로 나눌수 없음";
@@ -254,21 +251,15 @@ namespace 서준혁_계산기
             //  최종 값
             double res = calc_Num_Stack.Pop();
 
-            output += "=" + res.ToString();   //  =  결과값 
+            output += "=" + res.ToString();   //  textbox에 쓸 output에 =와 결과값 추가
 
             tx_Result.Text = output;
-            // num2=8이고 result=3+8 btn(=)11,  
-            // output=3+8 btn(=)11,Textbox1=3+8=11
+
+            buff = res.ToString();  //  임시 변수에 최종 값 저장
+
+            //  후위식 리스트 초기화
+            buff_List.Clear();
         }
         #endregion
     }
 }
-
-//  TODO
-/*
-연산자 중복 클릭 시 오류
-단 항 계산과 이 항 계산 구분 (단항인지 이항인지 체크 변수 필요)
-연속 계산시 현재 결과 값 어딘가에 임시 보 관 후 다시 num1로 대입 ( 5 )
-MSDN 에서  Math 클래스의 메소드 종류 확인할 것
-
-*/
