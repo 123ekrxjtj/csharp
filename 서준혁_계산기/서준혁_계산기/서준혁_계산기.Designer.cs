@@ -38,7 +38,6 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -48,13 +47,8 @@
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.btn_Exit = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tx_Result
@@ -110,7 +104,7 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(48, 24);
             this.button6.TabIndex = 10;
-            this.button6.Text = "x²";
+            this.button6.Text = "^";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button7
@@ -153,15 +147,6 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Bt_num_Click);
             // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(230, 112);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(48, 24);
-            this.button11.TabIndex = 20;
-            this.button11.Text = "π";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
             // button12
             // 
             this.button12.Location = new System.Drawing.Point(176, 200);
@@ -174,7 +159,7 @@
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(230, 201);
+            this.button13.Location = new System.Drawing.Point(122, 201);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(48, 24);
             this.button13.TabIndex = 18;
@@ -184,7 +169,7 @@
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(122, 83);
+            this.button14.Location = new System.Drawing.Point(68, 201);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(48, 24);
             this.button14.TabIndex = 17;
@@ -251,46 +236,18 @@
             this.button20.UseVisualStyleBackColor = true;
             this.button20.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Bt_num_Click);
             // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(14, 83);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(48, 24);
-            this.button21.TabIndex = 21;
-            this.button21.Text = "←";
-            this.button21.UseVisualStyleBackColor = true;
-            // 
             // button24
             // 
-            this.button24.Location = new System.Drawing.Point(230, 83);
+            this.button24.Location = new System.Drawing.Point(230, 201);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(48, 24);
             this.button24.TabIndex = 25;
             this.button24.Text = "√\'";
             this.button24.UseVisualStyleBackColor = true;
             // 
-            // button25
-            // 
-            this.button25.Location = new System.Drawing.Point(176, 83);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(48, 24);
-            this.button25.TabIndex = 24;
-            this.button25.Text = "±";
-            this.button25.UseVisualStyleBackColor = true;
-            // 
-            // btn_Exit
-            // 
-            this.btn_Exit.Location = new System.Drawing.Point(14, 230);
-            this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(264, 24);
-            this.btn_Exit.TabIndex = 26;
-            this.btn_Exit.Text = "종료";
-            this.btn_Exit.UseVisualStyleBackColor = true;
-            this.btn_Exit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Bt_Exit_Click);
-            // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(122, 201);
+            this.button5.Location = new System.Drawing.Point(230, 113);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(48, 24);
             this.button5.TabIndex = 5;
@@ -298,37 +255,12 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Bt_oper_Click);
             // 
-            // button23
-            // 
-            this.button23.Location = new System.Drawing.Point(68, 83);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(48, 24);
-            this.button23.TabIndex = 27;
-            this.button23.Text = "CE";
-            this.button23.UseVisualStyleBackColor = true;
-            this.button23.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Bt_clear_Click);
-            // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(68, 200);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(48, 24);
-            this.button22.TabIndex = 28;
-            this.button22.Text = ".";
-            this.button22.UseVisualStyleBackColor = true;
-            // 
             // 서준혁_계산기
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(297, 392);
-            this.Controls.Add(this.button22);
-            this.Controls.Add(this.button23);
-            this.Controls.Add(this.btn_Exit);
+            this.ClientSize = new System.Drawing.Size(287, 233);
             this.Controls.Add(this.button24);
-            this.Controls.Add(this.button25);
-            this.Controls.Add(this.button21);
-            this.Controls.Add(this.button11);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button13);
             this.Controls.Add(this.button14);
@@ -369,7 +301,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button14;
@@ -379,13 +310,8 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.Button btn_Exit;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.Button button22;
     }
 }
 

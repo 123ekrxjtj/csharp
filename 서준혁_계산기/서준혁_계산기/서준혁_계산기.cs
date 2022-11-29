@@ -35,7 +35,7 @@ namespace 서준혁_계산기
             oper_Stack = new Stack();
         }
 
-
+        
         private void 서준혁_계산기_Load(object sender, EventArgs e)
         {
             tx_Result.Text = output;
@@ -52,7 +52,6 @@ namespace 서준혁_계산기
                                      //  buff=3, output=3, textbox1=3
                                      //  뒤에서 buff=0, output=3+, textbox1=3+  로 되어 있는 상태에서 8 입력하면
                                      //  buff=8, output=3+8, textbox1=3+8 이고 = 입력하면 [3] 으로 감
-
         }
         #endregion
 
@@ -75,13 +74,8 @@ namespace 서준혁_계산기
         {
             Button btn = (Button)sender;
 
-
-
-            //  처음 계산 시
-            if (checkNum == 0)
-            {
-                num1 = Convert.ToSingle(buff); // 3
-            }
+            num_Stack.Push(Convert.ToDouble(buff));
+            oper_Stack.Push(btn.Text[0]);
             
             buff = "";                     // 0
             output += btn.Text;            // 3 + 
@@ -89,13 +83,6 @@ namespace 서준혁_계산기
             oper = btn.Text[0];            // +  
             // buff=3, num1=3, buff=0, output=3+, textbox1=3+, oper = +
             //다음에 8을 입력하면 다시[1] 앞 페이지 로 감
-        }
-        #endregion
-
-        #region : 종료 버튼 클릭 시 동작
-        private void Bt_Exit_Click(object sender, MouseEventArgs e)
-        {
-            Application.Exit();
         }
         #endregion
 
@@ -109,6 +96,19 @@ namespace 서준혁_계산기
             //  Button btn = (Button)sender;      // btn에는 = 가 저장됨
             num2 = Convert.ToInt32(buff);    // num2 =  8  buff(8)
 
+            //  예를 들어 1 + 2 를 차례로 팝하면
+            //  tmpOper <- +
+            //  tmpNum1 <- 1
+            //  tmpNum2 <- 2 저장
+            char tmpOper;   //  스택에서 팝한 연산자 임시 저장  
+            double tmpNum1;  //  스택에서 팝한 숫자 임시 저장
+            double tmpNum2;  //  스택에서 팝한 숫자 임시 저장
+            
+
+            while (oper_Stack.Count > 0)
+            {
+
+            }
             switch (oper)  // +
             {
                 case '+': result = num1 + num2; break;  // result=11
