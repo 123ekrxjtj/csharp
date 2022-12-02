@@ -121,7 +121,8 @@ namespace 서준혁_계산기
             String btnOper = btn.Text;  //  클릭한 연산자 문자
 
             //  연산자 누르기 전까지 입력한 숫자 후위식 리스트에 추가
-            buff_List.Add(buff);
+            //  그 숫자가 빈 문자열이 아닌 경우에만
+            if(buff!="")    buff_List.Add(buff);
 
             //  연산자 스택이 비어있으면 바로 클릭한 연산자 추가
             if (calc_Oper_Stack.Count == 0)
