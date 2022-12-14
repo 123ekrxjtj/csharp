@@ -67,6 +67,16 @@ namespace CheckListBox
             #endregion
 
             #region    문제 랜덤 선택 , 보기 랜덤  선택
+            List<int> problemNum = new List<int> { 0,1,2,3,4 }; //  문제 개수만큼 숫자 저장
+            int[] chosenNum = new int[3];   //  위 리스트 중 무작위로 3개 뽑아 저장할 배열
+
+            for (int i = 0; i < 3; i++)
+            {
+                int nextNum = rand.Next(problemNum.Count - i);  //  문제 하나 뽑음
+                chosenNum[i] = nextNum;
+                problemNum.RemoveAt(nextNum);   //  리스트에서 뽑힌 문제 번호 제거
+            }
+
             // 문제 랜덤 선택 및 표시
             for (int n = 0; n < GB.Length; n++)
             {
